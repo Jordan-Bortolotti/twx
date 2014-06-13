@@ -1,0 +1,56 @@
+@CHARSET "UTF-8";
+
+#win1 {
+	display: block;
+	position: absolute;
+	background-color: #F00;
+	top: 0px;
+	left: 0px;
+	width: 200px;
+	height: 200px;
+	z-index: 0;
+}
+
+#win2 {
+	display: block;
+	position: absolute;
+	background-color: #080;
+  top: 0px;
+  right: 0px;
+  width: 200px;
+  height: 200px;
+  z-index: 0;
+}
+
+#win3 {
+	display: block;
+	position: absolute;
+	background-color: #008;
+  bottom: 0px;
+  left: 0px;
+  width: 200px;
+  height: 200px;
+  z-index: 0;
+}
+
+#win4 {
+	display: block;
+	position: absolute;
+	background-color: #FF0;
+  bottom: 0px;
+  right: 0px;
+  width: 200px;
+  height: 200px;
+  z-index: 0;
+}
+
+#win5 {
+	display: block;
+	position: absolute;
+	background-color: #0FF;
+  top: 40%;
+  left: 40%;
+  width: 200px;
+  height: 200px;
+  z-index: 0;
+}

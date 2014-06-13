@@ -1,0 +1,15 @@
+<html>
+  <head><title></title></head>
+  <body>
+    <form enctype="multipart/form-data" action="upload.php" method="POST">
+      <!-- MAX_FILE_SIZE must preced file input field
+           It tells the browser the maximum size that will be accepted
+           when uploading. This is nice for the end-user since they don't
+           have to wait only to see the upload rejected. -->
+           <input type="hidden" name="MAX_FILE_SIZE" value="10485760" />
+
+      Single file: <input type="file" name="myfile" /><br />
+      <input type="submit" />
+    </form>
+  </body>
+</html>

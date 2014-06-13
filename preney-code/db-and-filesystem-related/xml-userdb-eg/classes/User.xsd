@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:element name="user">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element name="userName" type="xs:string" />
+      <xs:element name="password" type="xs:string" />
+      <xs:element name="fullName" type="xs:string" />
+      <xs:element name="emailAddress" type="xs:string" />
+      <xs:element name="isDisabled" type="xs:boolean" />
+      <xs:element name="isRegistered" type="xs:boolean" />
+      <xs:element name="isAdmin" type="xs:boolean" />
+      <xs:element name="isAuthor" type="xs:boolean" />
+      <xs:element name="isReviewer" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+</xs:schema>

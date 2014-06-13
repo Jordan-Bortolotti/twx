@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<?xml-stylesheet href="drag-and-drop.css" type="text/css" ?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" 
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg
+  id="svgRoot"
+  version="1.1"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="100%" height="100%"
+  preserveAspectRatio="xMidYMid meet"
+  onload="init()"
+>
+  <script xlink:href="drag-and-drop.js" type="application/javascript" />
+
+  <!-- Write some definitions that we can reuse... -->
+  <defs>
+    <!-- An inkwell is drawn in a region as a circle with
+         radius 40%. -->
+    <svg 
+      id="use-inkwell"
+      width="100%" height="100%"
+      viewBox="0 0 100 100"
+      preserveAspectRatio="xMidYMid meet"
+    >
+      <circle cx="50" cy="50" r="47" />
+    </svg>
+
+    <!-- A noinkwell is drawn in a 100x100 region as a square with
+         width 80. -->
+    <svg 
+      id="use-noinkwell"
+      width="100%" height="100%"
+      viewBox="0 0 100 100"
+      preserveAspectRatio="xMidYMid meet"
+    >
+      <rect x="5" y="5" width="94" height="94" />
+    </svg>
+
+    <!-- A triangle is drawn in a region. -->
+    <svg 
+      id="use-triangle-leftrot"
+      width="100%" height="100%" 
+      viewBox="0 0 100 100"
+      preserveAspectRatio="xMidYMid meet"
+    >
+      <path d="M 20,20 50,80 80,20 Z">
+        <animateTransform
+          attributeType="xml"
+          attributeName="transform"
+          type="rotate"
+          from="0 50 50"
+          to="360 50 50"
+          dur="60s"
+          repeatCount="indefinite"
+        />
+      </path>
+    </svg>
+    
+    <svg 
+      id="use-triangle-rightrot"
+      width="100%" height="100%" 
+      viewBox="0 0 100 100"
+      preserveAspectRatio="xMidYMid meet"
+    >
+      <path d="M 20,20 50,80 80,20 Z">
+        <animateTransform
+          attributeType="xml"
+          attributeName="transform"
+          type="rotate"
+          to="0 50 50"
+          from="360 50 50"
+          dur="60s"
+          repeatCount="indefinite"
+        />
+      </path>
+    </svg>
+
+    <!-- 60-334 Text -->
+    <svg 
+      id="use-text"
+      width="100%" height="100%" 
+      viewBox="-25 0 50 12"
+      preserveAspectRatio="xMidYMid meet"
+    >
+      <text 
+        x="0" y="11" 
+        class="regular-text" font-size="10px"
+        text-anchor="middle"
+      ><a 
+        xlink:href="https://preney.ca/eteach2/course/view.php?id=19"
+      >60-334!</a></text>
+    </svg>
+    
+    <!-- 60-334 Text -->
+    <svg 
+      id="use-nametext"
+      width="100%" height="100%" 
+      viewBox="-40 0 80 18"
+      preserveAspectRatio="xMidYMid meet"
+    >
+      <text 
+        x="0" y="16" id="name"
+        class="regular-text" font-size="10px"
+        text-anchor="middle"
+      >Paul Preney</text>
+    </svg>
+    
+    <!-- PacMan shape... -->
+    <svg 
+      id="use-pacman"
+      width="100%" height="100%" 
+      viewBox="0 0 100 100"
+      preserveAspectRatio="xMidYMid meet"
+    >
+      <path d="M83.234,83.234 A47,47,0,1,1,83.234,16.766 L 50,50 Z" />
+    </svg>
+    
+    <!-- One may wonder about making a star. This is an example but is
+         unused here. -->
+    <svg 
+      id="use-star"
+      width="100%" height="100%" 
+      viewBox="0 0 100 100"
+      preserveAspectRatio="xMidYMid meet"
+    >
+      <path d="M50,97 64.6946,70.2254 94.6997,64.5238 73.7764,42.2746 77.6259,11.9762 50,25 22.3741,11.9762 26.2236,42.2746 5.30034,64.5238 35.3054,70.2254 Z"/>
+    </svg>
+    
+    <!-- Once one has a star, it is easy to clipPath it... -->
+    <svg 
+      id="use-star-clip"
+      width="100%" height="100%" 
+      viewBox="0 0 100 100"
+      preserveAspectRatio="xMidYMid meet"
+    >
+      <clipPath id="use-star-clip-path">
+        <path 
+          id="use-star-clip-path-shape"
+          d="M50,97 64.6946,70.2254 94.6997,64.5238 73.7764,42.2746 77.6259,11.9762 50,25 22.3741,11.9762 26.2236,42.2746 5.30034,64.5238 35.3054,70.2254 Z" transform="rotate(180 50 50)" 
+        />
+      </clipPath>
+      <image 
+        xlink:href="max.jpg" clip-path="url(#use-star-clip-path)"
+        width="100" height="100"
+      />
+      <!-- We need the ability to apply a stroke with no fill, so we
+           <use> our path. -->
+      <use xlink:href="#use-star-clip-path-shape" fill="none" />
+    </svg>
+  </defs>
+
+  <!-- Create a panel of inkwells and one noinkwell. -->
+  <use xlink:href="#use-inkwell" id="inkwell-red" class="red"
+     x="5%" y="5%" width="9.5%" height="9.5%" />
+  <use xlink:href="#use-inkwell" id="inkwell-green" class="green" 
+    x="15%" y="5%" width="9.5%" height="9.5%" />
+  <use xlink:href="#use-inkwell" id="inkwell-blue" class="blue" 
+    x="25%" y="5%" width="9.5%" height="9.5%" />
+  <use xlink:href="#use-inkwell" id="inkwell-cyan" class="cyan" 
+    x="35%" y="5%" width="9.5%" height="9.5%" />
+  <use xlink:href="#use-inkwell" id="inkwell-magenta" class="magenta" 
+    x="45%" y="5%" width="9.5%" height="9.5%" />
+  <use xlink:href="#use-inkwell" id="inkwell-yellow" class="yellow" 
+    x="55%" y="5%" width="9.5%" height="9.5%" />
+  <use xlink:href="#use-inkwell" id="inkwell-white" class="white" 
+    x="65%" y="5%" width="9.5%" height="9.5%" />
+  <use xlink:href="#use-inkwell" id="inkwell-black" class="black" 
+    x="75%" y="5%" width="9.5%" height="9.5%" />
+  <use xlink:href="#use-noinkwell" id="noinkwell" 
+    x="85%" y="5%" width="9.5%" height="9.5%" />
+
+  <!-- Create some shapes to move around and to colour with inks... -->
+  <g id="big-triangle">
+      <use xlink:href="#use-triangle-leftrot" 
+        x="5%" y="30%" width="20%" height="20%" />
+      <use xlink:href="#use-triangle-rightrot" 
+        x="15%" y="30%" width="20%" height="20%" />
+  </g>
+
+  <!-- Another triangle elsewhere -->
+  <use xlink:href="#use-triangle-leftrot" id="normal-triangle" 
+    x="85%" y="75%" width="10%" height="10%" />
+
+  <!-- A circle and text "inside" of it -->
+  <g id="text">
+    <g id="text-rotate">
+    <circle id="text-circle" cx="50%" cy="50%" r="7%" />
+    <use xlink:href="#use-text" id="actual-text"
+      x="45%" y="44.5%" width="10%" height="10%" />
+    </g>
+  </g>
+  <animate 
+    xlink:href="#text-circle" 
+    attributeName="fill"
+    attributeType="XML"
+    fill="freeze" 
+    dur="10s"
+    values="#F00;#FF0;#0F0;#0FF;#00F;#F0F;#FFF;#000;#F00"
+    calcMode="paced"
+    repeatCount="indefinite"
+  />
+
+  <!-- Add your own shapes / assignment additions here. -->
+  <use xlink:href="#use-pacman" id="pacman"
+    x="60%" y="50%" width="20%" height="20%"
+  />
+  
+  <!-- This text is updated when it is clicked... -->
+  <use xlink:href="#use-nametext" id="updatename"
+    x="25%" y="60%" width="10%" height="10%" />
+  
+  <!-- 5-point star w/image cut-out... -->
+  <use xlink:href="#use-star-clip" id="star"
+    x="40%" y="70%" width="20%" height="20%" />
+</svg>

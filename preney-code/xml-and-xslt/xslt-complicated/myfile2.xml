@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<book>
+  <chapter id="alpha">
+    <title>Chapter 1: Blah</title>
+    <para>This is a paragraph.</para>
+    <para>This is a paragraph.</para>
+    <para>This is a paragraph.</para>
+  </chapter>
+  <chapter id="beta">
+    <title>Chapter 2: More Blah</title>
+    <para>This is a paragraph.</para>
+    <para>This is a paragraph.</para>
+    <para>This is a paragraph.</para>
+    <para>This is a paragraph.</para>
+  </chapter>
+  <chapter id="gamma">
+    <title>Chapter 3: More Blah</title>
+    <para>This is a paragraph.</para>
+    <para>This is a paragraph.</para>
+    <para>This is a paragraph.</para>
+  </chapter>
+</book>

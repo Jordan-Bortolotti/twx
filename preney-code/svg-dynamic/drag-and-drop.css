@@ -1,0 +1,33 @@
+/* CSS classes are used to get/set inks... */
+.red        { fill: #F00; stroke: #700; stroke-width: 5px; }
+.green      { fill: #0F0; stroke: #070; stroke-width: 5px; }
+.blue       { fill: #00F; stroke: #007; stroke-width: 5px; }
+.cyan       { fill: #0FF; stroke: #077; stroke-width: 5px; }
+.magenta    { fill: #F0F; stroke: #707; stroke-width: 5px; }
+.yellow     { fill: #FF0; stroke: #770; stroke-width: 5px; }
+.white      { fill: #FFF; stroke: #777; stroke-width: 5px; }
+.black      { fill: #000; stroke: #777; stroke-width: 5px; }
+
+/* The special noinkwell is fixed in appearance. */
+#noinkwell  { fill: #FFF; stroke: #777; stroke-width: 5px; }
+
+/* Text settings */
+.regular-text { font-family: sans-serif; }
+
+#text .red, #text .green, #text .blue, 
+#text .cyan, #text .magenta, #text .yellow,
+#text .black, #text .white {
+  stroke: none;
+}
+
+/* This next style has to be added for the text to appear proper when it is
+ * updated. Notice there is no space between #updatename and the class. 
+ * This is needed because the element #updatename is the one with the applied
+ * class setting. */
+#updatename.red, #updatename.green, #updatename.blue, 
+#updatename.cyan, #updatename.magenta, #updatename.yellow,
+#updatename.black, #updatename.white
+{
+  stroke: none;
+}
+

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" href="style.css" type="text/css" media="all" />
+<script src="code.js" type="text/javascript"></script>
+</head>
+<body onload="init();">
+
+<div id="counter"><a href="javascript:updateCounter()">Update</a></div>
+
+<p>
+<a href="javascript:chooseCol('#F00');">RED</a><br />
+<a href="javascript:chooseCol('#0F0');">GREEN</a><br />
+<a href="javascript:chooseCol('#00F');">BLUE</a><br />
+<a href="javascript:chooseCol('#0FF');">CYAN</a><br />
+<a href="javascript:chooseCol('#F0F');">MAGENTA</a><br />
+<a href="javascript:chooseCol('#FF0');">YELLOW</a><br />
+<a href="javascript:chooseCol('#777');">GREY</a><br />
+<br />
+<a href="javascript:setCol('win1');">Set Win1 Colour</a><br />
+<a href="javascript:setCol('win2');">Set Win2 Colour</a><br />
+<a href="javascript:setCol('win3');">Set Win3 Colour</a><br />
+<a href="javascript:setCol('win4');">Set Win4 Colour</a><br />
+<a href="javascript:setCol('win5');">Set Win5 Colour</a><br />
+<br />
+<a href="javascript:toggleVis('win1');">Toggle Win1 Visibility</a><br />
+<a href="javascript:toggleVis('win2');">Toggle Win2 Visibility</a><br />
+<a href="javascript:toggleVis('win3');">Toggle Win3 Visibility</a><br />
+<a href="javascript:toggleVis('win4');">Toggle Win4 Visibility</a><br />
+<a href="javascript:toggleVis('win5');">Toggle Win5 Visibility</a><br />
+</p>
+
+<div id="win1" onmousemove="moveBy(event);"
+	onclick="toggleMoveBy(event);">
+	<p>Win1</p>
+</div>
+
+<div id="win2" onmousemove="moveBy(event);"
+	onclick="toggleMoveBy(event);"><p>Win2</p></div>
+
+<div id="win3" onmousemove="moveBy(event);"
+	onclick="toggleMoveBy(event);"><p>Win3</p></div>
+
+<div id="win4" onmousemove="moveBy(event);"
+	onclick="toggleMoveBy(event);"><p>Win4</p></div>
+
+<div id="win5" onmousemove="moveBy(event);"
+	onclick="toggleMoveBy(event);"><p>Win5</p></div>
+
+</body>
+</html>

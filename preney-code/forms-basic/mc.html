@@ -1,0 +1,137 @@
+<html>
+  <head><title>Title</title></head>
+  <body>
+    <h1>Text</h1>
+    
+    <div class="tq">
+      <form action="target.php" method="POST">
+        <fieldset>
+          <legend>Password text</legenD>
+          <p class="ques">This is a password text question.</p>
+          <input type="hidden" name="var" value="value" />
+          <input type="password" name="field1" value="Default Text">Description (on right)</input><br />
+          <input type="submit" name="Button1" value="Save" />
+          <input type="reset" value="Reset" />
+        </fieldset>
+      </form>
+    </div>
+
+    <div class="tq">
+      <form action="target.php" method="POST">
+        <fieldset>
+          <legend>Single line text</legenD>
+          <p class="ques">This is a single line text question.</p>
+          <input type="hidden" name="var" value="value" />
+          <input type="text" name="field1" value="Default Text">Description (on right)</input><br />
+          <input type="submit" name="Button1" value="Save" />
+          <input type="reset" value="Reset" />
+        </fieldset>
+      </form>
+    </div>
+    
+    <div class="tq">
+      <form action="target.php" method="POST">
+        <fieldset>
+          <legend>Multiline text</legenD>
+          <p class="ques">This is a multiline text question.</p>
+          <input type="hidden" name="var" value="value" />
+          <textarea name="field1" rows="4" cols="20">Default text</textarea><br />
+          <input type="submit" name="Button1" value="Save" />
+          <input type="reset" value="Reset" />
+        </fieldset>
+      </form>
+    </div>
+
+    <h1>Single Choice</h1>
+
+    <div class="scq">
+      <form action="target.php" method="POST">
+        <fieldset>
+          <legend>Single choice radio buttons</legenD>
+          <p class="ques">This is a single choice question.</p>
+          <input type="hidden" name="var" value="value" />
+          <!-- Note that name= denotes a group of mutex radio buttons -->
+          <input type="radio" name="sex" value="Male" checked="checked">Male</input><br />
+          <input type="radio" name="sex" value="Female">Female</input><br />
+          <input type="submit" name="Button1" value="Save" />
+          <input type="reset" value="Reset" />
+        </fieldset>
+      </form>
+    </div>
+
+    <h1>Multiple Choice</h1>
+
+    <div class="scq">
+      <form action="target.php" method="POST">
+        <fieldset>
+          <legend>Multiple choice check buttons</legenD>
+          <p class="ques">This is a multiple choice question.</p>
+          <input type="hidden" name="var" value="value" />
+          <input type="checkbox" name="sex" value="Male" checked="checked">Male</input><br />
+          <input type="checkbox" name="sex" value="Female">Female</input><br />
+          <input type="submit" name="Button1" value="Save" />
+          <input type="reset" value="Reset" />
+        </fieldset>
+      </form>
+    </div>
+
+    <div class="mcq">
+      <form action="target.php" method="POST">
+        <fieldset>
+          <legend>Mutex, (drop-down) list</legenD>
+          <p class="ques">This is a multiple choice question.</p>
+          <input type="hidden" name="var" value="value" />
+          <select name="mca1">
+            <optgroup label="group1">
+              <option value="val1">choice1</option>
+              <option value="val2">choice2</option>
+            </optgroup>
+            <optgroup label="group2">
+              <option value="val3">choice3</option>
+            </optgroup>
+          </select>
+          <input type="submit" name="Button1" value="Save" />
+        </fieldset>
+      </form>
+    </div>
+    
+    <div class="mcq">
+      <form action="target.php" method="POST">
+        <fieldset>
+          <legend>Multiple, list</legenD>
+          <p class="ques">This is a multiple choice question.</p>
+          <input type="hidden" name="var" value="value" />
+          <select name="mca1" multiple="multiple">
+            <option value="val1">choice1</option>
+            <option value="val2">choice2</option>
+            <option value="val3">choice3</option>
+          </select>
+          <input type="submit" name="Button1" value="Save" />
+        </fieldset>
+      </form>
+    </div>
+    
+    <div class="mcq">
+      <form action="target.php" method="POST">
+        <fieldset>
+          <legend>Multiple, list (in groups)</legenD>
+          <p class="ques">This is a multiple choice question.</p>
+          <input type="hidden" name="var" value="value" />
+          <select name="mca1" multiple="multiple">
+            <optgroup label="group1">
+              <option value="val1">choice1</option>
+              <option value="val2">choice2</option>
+            </optgroup>
+            <optgroup label="group2">
+              <option value="val3">choice3</option>
+              <option value="val4">choice4</option>
+            </optgroup>
+            <option value="val5">choice5</option>
+          </select>
+          <input type="submit" name="Button1" value="Save" />
+        </fieldset>
+      </form>
+    </div>
+
+  </body>
+</html>

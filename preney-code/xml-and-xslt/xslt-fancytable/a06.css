@@ -1,0 +1,49 @@
+/* Disable a tag settings unless hovering... */
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Table is 100% of the width... */
+table { 
+  width: 100%;
+  border-collapse: collapse; 
+}
+
+/* Apply a border to the entire table... */
+table, thead, td { border: 2px solid #658700; }
+
+/* Vertically align all content in table cells to be in the middle... */
+tbody { vertical-align: middle }
+
+/* thead settings... */
+thead { 
+  font-weight: bold;
+  color: white;
+  background-color: #A7C942;
+}
+
+thead td {
+  padding-top: 1ex;
+  padding-bottom: 1ex;
+}
+
+/* left/right padding... */
+td {
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+
+/* Ensure alternating lines have different backgrounds... */
+tr.odd { background-color: #FFB; }
+tr.even { background-color: #BFF; }
+
+tr.odd:hover,
+tr.even:hover { 
+  background-color: black;
+  color: white;
+}

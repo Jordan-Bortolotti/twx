@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<products>
+  <prod id="342112">
+    <sname>iPod</sname>
+    <lname>iPod Model XYZ</lname>
+    <price>235.32</price>
+  </prod>
+  <prod id="432">
+    <sname>iNano</sname>
+    <lname>iNano Model XYZ</lname>
+    <price>9827.32</price>
+  </prod>
+  <prod id="342556">
+    <sname>iMac</sname>
+    <lname>iMac Model XYZ</lname>
+    <price>1500.99</price>
+  </prod>
+  <prod id="943">
+    <sname>ThumbDrive</sname>
+    <lname>ThumbDrive Model XYZ</lname>
+    <price>32.43</price>
+  </prod>
+</products>

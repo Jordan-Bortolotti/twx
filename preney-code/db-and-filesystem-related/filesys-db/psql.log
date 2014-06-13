@@ -1,0 +1,60 @@
+psql (8.4.4)
+Type "help" for help.
+
+webdb=# CREATE TABLE users (
+webdb(#   uname VARCHAR(30) PRIMARY KEY,
+webdb(#   pass VARCHAR(30) NOT NULL
+webdb(# );
+NOTICE:  CREATE TABLE / PRIMARY KEY will create implicit index "users_pkey" for table "users"
+CREATE TABLE
+webdb=# INSERT INTO users (uname, pass) VALUES ('preney', '1234');
+INSERT 0 1
+webdb=# SELECT * from users;
+ uname  | pass
+--------+------
+ preney | 1234
+(1 row)
+
+webdb=# insert into users (uname, pass) values ('qazwsx', '32refadsfrqew');
+INSERT 0 1
+webdb=# SELECT * from users;
+ uname  |     pass
+--------+---------------
+ preney | 1234
+ qazwsx | 32refadsfrqew
+(2 rows)
+
+webdb=# select from users where uname='preney';
+ERROR:  syntax error at or near "from"
+LINE 1: select from users where uname='preney';
+               ^
+webdb=# select * from users where uname='preney';
+ uname  | pass
+--------+------
+ preney | 1234
+(1 row)
+
+webdb=# SELECT * from users;
+ uname  |     pass
+--------+---------------
+ preney | 1234
+ qazwsx | 32refadsfrqew
+(2 rows)
+
+webdb=# delete from users where uname='qazwsx';
+DELETE 1
+webdb=# SELECT * from users;
+ uname  | pass
+--------+------
+ preney | 1234
+(1 row)
+
+webdb=# update users set pass='poiuyut' where uname='preney';
+UPDATE 1
+webdb=# SELECT * from users;
+ uname  |  pass
+--------+---------
+ preney | poiuyut
+(1 row)
+
+webdb=# \q
