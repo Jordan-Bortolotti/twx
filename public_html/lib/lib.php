@@ -43,7 +43,11 @@ ZZEOF;
 function output_page_header()
 {
 	echo<<<ZZEOF
-<div id="header">Wizard Exchange</div>
+<div id="header">Wizard Exchange
+ZZEOF;
+	output_login_content();
+	echo<<<ZZEOF
+</div>
 ZZEOF;
 }
 
@@ -81,11 +85,56 @@ function output_post_page_content()
 ZZEOF;
 }
 
-function output_login_content()
+function output_createuser_page_content()
 {
 	echo<<<ZZEOF
-<div>output_login_content</div>
+<form id="content" method='post' accept-charset='UTF-8'>
+	<fieldset>
+		<legend>New User</legend>
+		<label for='username'>Username:</label>
+		<input type='text' name='username' id='username' maxlength="50"/>
+		<br />
+		<label for='email'>Email:</label>
+		<input type='text' name='email' id='email' maxlength="50"/>
+		<br />
+		<label for='password1'>Password:</label>
+		<input type='password' name='password1' id='password' maxlength="50"/>
+		<br />
+		<label for='password2'>Re-enter:</label>
+		<input type='password' name='password2' id='password' maxlength="50"/>
+		<br />
+		<input action='createuser.php' type='submit' name='NewUser' value='New User'/>
+	</fieldset>
+</form>
 ZZEOF;
+}
+
+function output_login_content()
+{
+	if(is_user_logged_in())
+	{
+		echo<<<ZZEOF
+<a id="login" href="logout.php">Logout</a>
+ZZEOF;
+	}
+	else
+	{
+		echo<<<ZZEOF
+<form id="login" action='login.php' method='post' accept-charset='UTF-8'>
+	<fieldset>
+		<legend>Login</legend>
+		<label for='username'>Username:</label>
+		<input type='text' name='username' id='username' maxlength="50"/>
+		<br />
+		<label for='password'>Password:</label>
+		<input type='password' name='password' id='password' maxlength="50"/>
+		<br />
+		<input type='submit' name='Submit' value='Submit'/>
+		<input type='submit' name='NewUser' value='New User'/>
+	</fieldset>
+</form>
+ZZEOF;
+	}
 }
 
 function output_page_footer()
@@ -111,6 +160,6 @@ function user_logged_in()
 function send_user_to_url($url)
 {
 	header('Location: '.$url);
+	exit;
 }
-
 ?>

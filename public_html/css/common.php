@@ -44,6 +44,6 @@ header('Content-Type: text/css');
   background-color: black;
 }
 
-
-
-
+#login {
+  float: right;
+}
