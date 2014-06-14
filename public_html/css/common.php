@@ -67,3 +67,7 @@ background-color: #e8eef4;
 #login {
   float: right;
 }
+
+.error {
+  color: #F00;
+}
