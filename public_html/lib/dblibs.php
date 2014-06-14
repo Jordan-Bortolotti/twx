@@ -2,7 +2,10 @@
 
 require_once('config.php');
 
-session_start();
+if(session_status() == PHP_SESSION_NONE)
+{
+	session_start();
+}
 $db_connection_handle = NULL;
 
 function db_connect()

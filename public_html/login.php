@@ -1,7 +1,6 @@
 <?php
 	require_once('lib/dblibs.php');
-	session_start();
-
+	
 	if(isset($_POST['NewUser']))
 	{
 		header('Location: createuser.php');

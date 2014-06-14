@@ -2,7 +2,10 @@
 
 function do_page_prerequisites()
 {
-	session_start();
+	if(session_status() == PHP_SESSION_NONE)
+	{
+		session_start();
+	}
 }
 
 function output_html5_header($title, $css = array(), $js = array())
@@ -65,7 +68,7 @@ function output_home_page_content()
 {
 	echo<<<ZZEOF
 <div id="content">Welcome to Wizard Echange!<br />
-	<img src="https://avatars0.githubusercontent.com/u/3413101?s=400" alt="">
+	<img src="http://www.terminally-incoherent.com/blog/wp-content/uploads/2012/08/areyouawizard.png" alt="">
 </div>
 ZZEOF;
 }
@@ -252,9 +255,7 @@ function output_login_content()
 {
 	if(is_user_logged_in())
 	{
-		echo<<<ZZEOF
-<a id="login" href="logout.php">Logout</a>
-ZZEOF;
+		echo '<a id="login" href="logout.php">Logout '.$_SESSION['user'].'</a>';
 	}
 	else
 	{
