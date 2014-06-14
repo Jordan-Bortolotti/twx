@@ -88,7 +88,7 @@ background-color: #e8eef4;
   color: #F00;
 }
 
-div#content label{
+#content label{
     display: inline-block;
     float: left;
     clear: left;
@@ -97,7 +97,7 @@ div#content label{
 	color: #000000;
 }
 
-div#content  input, select {
+#content  input, select {
   display: inline-block;
   float: left;
 }

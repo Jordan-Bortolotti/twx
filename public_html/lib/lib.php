@@ -148,6 +148,12 @@ ZZEOF;
 		echo "<span class='error'>".$_SESSION['posterror']."</span><br />";
 	}
 		echo<<<ZZEOF
+		<label for='r'>Purpose:</label>
+		<input type="radio" name="r" value="Trade">To Trade</input>
+		<br />
+		<label for='r'>&nbsp;</label>
+		<input type="radio" name="r" value="Want">Looking For</input>
+		<br />
 		<label for='cardname'>Card Name:</label>
 		<input type='text' name='cardname' maxlength="50"/>
 		<br />
@@ -157,19 +163,16 @@ ZZEOF;
 		<label for='condition'>Condition:</label>
 		<select name="condition">
 			<option value=""></option>
-			<option value="nm">Near Mint</option>
-			<option value="sp">Lightly Played</option>
-			<option value="mp">Moderately Played</option>
-			<option value="hp">Heavily Played</option>
-			<option value="d">Damaged</option>
+			<option value="Near Mint">Near Mint</option>
+			<option value="Lightly Played">Lightly Played</option>
+			<option value="Moderately Played">Moderately Played</option>
+			<option value="Heavily Played">Heavily Played</option>
+			<option value="Damaged">Damaged</option>
 		</select>
-		<br />
-		<input type="radio" name="r" value="has">To Trade</input>
-		<input type="radio" name="r" value="wants">Looking For</input>
-		<br />
+		<!--<br />
 		<label for="file">Filename:</label>
-		<input type="file" name="file" id="file">
-		<br />
+		<input type="file" name="file" id="file">-->
+		<br /><br />
 		<input type='submit' name='Submit' value='Submit'/>
 	</fieldset>
 </form>
