@@ -66,6 +66,22 @@ background-color: #e8eef4;
 
 #login {
   float: right;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 0 4px 4px 4px;
+}
+
+#login label {
+  display: inline-block;
+  float: left;
+  clear: left;
+  width: 90px;
+  text-align: left;
+}
+
+#login input {
+  display: inline-block;
+  float: left;
 }
 
 .error {

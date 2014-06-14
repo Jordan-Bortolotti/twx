@@ -142,6 +142,12 @@ function output_post_page_content()
 <form action='post.php' id="content" method='post' accept-charset='UTF-8'>
 	<fieldset>
 		<legend>New Post</legend>
+ZZEOF;
+	if(!empty($_SESSION['posterror']))
+	{
+		echo "<span class='error'>".$_SESSION['posterror']."</span><br />";
+	}
+		echo<<<ZZEOF
 		<label for='cardname'>Card Name:</label>
 		<input type='text' name='cardname' maxlength="50"/>
 		<br />
@@ -168,6 +174,8 @@ function output_post_page_content()
 	</fieldset>
 </form>
 ZZEOF;
+
+	unset($_SESSION['posterror']);
 	}
 	else
 	{
@@ -200,7 +208,7 @@ ZZEOF;
 		<br />
 		<label for='password2'>Re-enter:</label>
 		<input type='password' name='password2' maxlength="50"/>
-		<br />
+		<br /><br />
 		<input type='submit' name='NewUser' value='New User'/>
 	</fieldset>
 </form>
