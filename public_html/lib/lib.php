@@ -185,6 +185,34 @@ ZZEOF;
 	}
 }
 
+function output_about_page_content()
+{
+	echo<<<ZZEOF
+<div id="content">
+	<p>The Wizard Exchange is a web community who's purpose is to connect Magic the Gathering players for trading, buying, and selling.</p>
+	</ br>
+		<ul>
+			<li><b>Where to Begin</b>
+			<li><b>How to Post</b>
+			<li><b>How to Search</b>
+			<li><b>Legal</b> 
+		</ul>
+	</p>	
+</div>
+
+ZZEOF;
+}
+
+function output_contact_page_content()
+{
+	echo<<<ZZEOF
+<div id="content">
+	<p>Send us an email and our support team will help resolve any issues you have regarding TWX.</p>
+	<emailarea>Email Content here.</emailarea>
+</div>	
+ZZEOF;
+}
+	
 function output_createuser_page_content()
 {
 	echo<<<ZZEOF
