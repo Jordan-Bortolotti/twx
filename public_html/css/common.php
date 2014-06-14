@@ -3,45 +3,65 @@ require_once('../lib/lib.php');
 do_page_prerequisites();
 header('Content-Type: text/css');
 ?>
-#header {
+body {
+  font: "Trebuchet MS", Verdana, sans-serif;
+  background-color: #5C87B2;
+  color: #696969;
+}
+
+#main {
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 0 4px 4px 4px;
+}
+
+h1 {
+  font: Georgia, serif;
+  border-bottom: 3px solid #cc9900;
+  color: #996600;
+}
+
+/*#header {
   background-color: #F00;
-}
+}*/
 
-#menu {
+/*#menu {
   background-color: #FF0;
-}
+}*/
 
-#content {
+/*#content {
   background-color: #F0F;
-}
+}*/
 
-#footer {
+/*#footer {
   background-color: #0F0;
-}
+}*/
 
-#menu :link, 
-#menu :visited {
-  color: #FF0;
-  text-decoration: normal;
-}
-
-#menu ul li {
-  background-color: #070;
-  color: #F0F;
-}
-
-#menu ul {
-  list-style-type: none;
-}
-
-#menu li:hover,
-#menu li:focus {
-  background-color: #FF0;
-  color: #070;
-}
-#menu a:hover
+ul#menu
 {
-  background-color: black;
+padding: 0px;
+position: relative;
+margin: 0;
+}
+
+ul#menu li
+{
+display: inline;
+}
+
+ul#menu li a
+{
+background-color: #ffffff;
+padding: 10px 20px;
+text-decoration: none;
+line-height: 2.8em;
+color: #034af3;
+border-radius: 4px 4px 0 0;
+}
+
+ul#menu li a:hover
+{
+background-color: #e8eef4;
 }
 
 #login {

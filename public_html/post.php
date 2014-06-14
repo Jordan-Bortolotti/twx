@@ -6,8 +6,8 @@
 		array("css/common.php")
 	);
 
-	output_page_header();
 	output_page_menu();
+	output_page_header();
 	output_post_page_content();
 	output_page_footer();
 

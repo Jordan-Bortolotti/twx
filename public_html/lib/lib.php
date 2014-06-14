@@ -43,25 +43,22 @@ ZZEOF;
 function output_page_header()
 {
 	echo<<<ZZEOF
-<div id="header">Wizard Exchange
-ZZEOF;
-	output_login_content();
-	echo<<<ZZEOF
-</div>
+<div id="main"><h1>Wizard Exchange</h1>
 ZZEOF;
 }
 
 function output_page_menu()
 {
 	echo<<<ZZEOF
-<div id="menu">menu
-	<ul>
-		<li><a href="main.php">Home</a></li>
-		<li><a href="search.php">Search</a></li>
-		<li><a href="post.php">Put up a card!</a></li>
-	</ul>
-</div>
+<ul id="menu">
+	<li><a href="main.php">Home</a></li>
+	<li><a href="search.php">Search</a></li>
+	<li><a href="post.php">Put up a card!</a></li>
+	<li><a href="about.php">About</a></li>
+	<li><a href="contact.php">Contact us</a></li>
+</ul>
 ZZEOF;
+	output_login_content();
 }
 
 function output_home_page_content()
@@ -176,7 +173,8 @@ ZZEOF;
 function output_page_footer()
 {
 	echo<<<ZZEOF
-<div id="footer">output_page_footer</div>
+<div id="footer">&copy; 2014 TaGaJo. All rights reserved.</div>
+</div>
 ZZEOF;
 }
 

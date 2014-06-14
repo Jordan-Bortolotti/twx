@@ -3,9 +3,13 @@
 
 	if(!empty($_POST))
 	{
-		output_html5_header('test');
-		output_page_header();
+		output_html5_header(
+			'New User',
+			array("css/common.php")
+		);
+
 		output_page_menu();
+		output_page_header();
 		
 		foreach($_POST as $key => $value)
 		{
@@ -25,8 +29,8 @@ ZZEOF;
 			array("css/common.php")
 		);
 
-		output_page_header();
 		output_page_menu();
+		output_page_header();
 		output_createuser_page_content();
 		output_page_footer();
 
