@@ -82,4 +82,3 @@ div#content  input {
   float: left;
 }
 
-
