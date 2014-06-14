@@ -81,7 +81,17 @@ div#content label{
 	color: #000000;
 }
 
-div#content  input {
+div#content  input, select {
   display: inline-block;
   float: left;
+}
+
+div#seachContent table, th, td {
+	color: #000000;
+    border: 1px solid black;
+}
+
+p.search {
+	color: #000000;
+	font-size:150%;
 }

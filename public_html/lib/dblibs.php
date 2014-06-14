@@ -44,6 +44,7 @@ function db_init()
 
 function db_add_new_user($user, $pass, $userEmail)
 {
+  db_connect();
   global $db_connection_handle;
 
   $adjusted_pass = md5($pass);
@@ -53,10 +54,13 @@ function db_add_new_user($user, $pass, $userEmail)
   $sql = 'INSERT INTO Users VALUES (:null, :user, :pass, :userEmail, :totalTrades)';
   $st = $db_connection_handle->prepare($sql);
   $result = $st->execute($user_array);
+  
+  db_CloseConnection();
 }
 
 function db_verify_login($user, $pass)
 {
+  db_connect();
   global $db_connection_handle;
 
   $adjusted_pass = md5($pass);
@@ -70,7 +74,6 @@ function db_verify_login($user, $pass)
 
 	$us = $st->fetch();
 	
-	echo '<p>For each done</p>';
 	echo $us['password'].' - '.$adjusted_pass;
     
 	if (strcmp($us['password'], $adjusted_pass) == 0){
@@ -88,10 +91,12 @@ function db_verify_login($user, $pass)
 	echo '<p>EXCEPTION</p>';
     return FALSE;
   }
+  db_CloseConnection();
  }
   
 function db_upload_card($cardName,$cardSet,$cardCondition,$exchangeType)
 {
+    db_connect();
 	global $db_connection_handle;
 	
 	$sql = 'INSERT INTO Cards VALUES (:null,:cardName, :cardSet, :cardCondition, :exchangeType, :userID)';
@@ -107,6 +112,38 @@ function db_upload_card($cardName,$cardSet,$cardCondition,$exchangeType)
 	{
 		return false;
 	}
+	db_CloseConnection();
+}
+
+function db_search_cards($choices = array())
+{
+	db_connect();
+	global $db_connection_handle;
+	
+	//Begining of sql statements	
+	$sql = "SELECT cardName, cardSet, cardCondition, exchangeType, userName, email FROM Cards INNER JOIN Users USING(userID) WHERE ";
+	$execute_array = array();
+	$i = 1;
+	
+	//Assemble search query based on the choice array
+	foreach($choices as $searchType => $searchValue)
+	{
+		if ($i>1)
+		{
+			$sql = $sql." AND ";
+		}		
+		$sql = $sql.$searchType."=:".$searchType;
+		$execute_array[':'.$searchType] =  $searchValue;
+		$i++;
+	}
+	//Begin Processing
+	$st = $db_connection_handle->prepare($sql);
+	$result = $st->execute($execute_array);
+	$us = $st->fetchAll(PDO::FETCH_ASSOC);
+	
+	return $us;
+	
+	db_CloseConnection();	
 }
 
 

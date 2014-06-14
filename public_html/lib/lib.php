@@ -74,12 +74,62 @@ function output_search_page_content()
 {
 	echo<<<ZZEOF
 <div id="content">
-	<form action='search.php' id="search" method="post">
-		<label  for="cname">Card Name: </label> <input type="text" name="cardName"><br>
-		<label  for="cset">Card Set: </label><input type="text" name="cardSet"><br>
-		<label  for="ccond">Card Condition: </label><input type="text" name="cardCondition"><br><br>
-		<input type="submit" value="Search"><br><br>
+	<form action='search.php' id="search" method="get">
+		<fieldset>
+			<legend>Search</legend>
+			<label  for="cname">Card Name: </label> <input type="text" name="cardName"><br>
+			<label  for="cset">Card Set: </label><input type="text" name="cardSet"><br>
+			<label  for="ccond">Card Condition: </label>
+			<select name="cardCondition">
+              <option value=""></option>			
+			  <option value="Near Mint">Near Mint</option>
+			  <option value="Lightly Played">Lightly Played</option>
+			  <option value="Moderately Played">Moderately Played	</option>
+			  <option value="Heavily Played">Heavily Played</option>
+			  <option value="Damaged">Damaged</option>
+			</select><br>
+			<label  for="lf">Looking For: </label>
+			<select name="exchangeType">
+              <option value=""></option>			
+			  <option value="Want">People who want this card</option>
+			  <option value="Trade">People trading away this card</option>			  
+			</select><br><br>
+			<input type="submit" value="Search"><br><br>
+		</fieldset>
 	</form>
+</div>
+ZZEOF;
+}
+
+function output_search_table($tableValues)
+{
+echo<<<ZZEOF
+<div id="searchContent">
+	<table class="searchTable">
+		<thead>
+			<th>Card Name</th>
+			<th>Card Set</th>
+			<th>Card Condition</th>
+			<th>Exchange Type</th>
+			<th>Seller Name</th>
+			<th>Seller Email</th>
+		</thead>
+		</tbody>
+ZZEOF;
+	foreach($tableValues as $row)
+	{
+		print "<tr>";
+		foreach($row as $key => $value)
+		{
+			echo<<<ZZEOF
+			<td>$value</td>				
+ZZEOF;
+		}
+		print "</tr>";
+	}
+echo<<<ZZEOF
+	</tbody>
+	</table>	
 </div>
 ZZEOF;
 }
