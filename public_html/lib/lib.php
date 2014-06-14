@@ -64,7 +64,9 @@ ZZEOF;
 function output_home_page_content()
 {
 	echo<<<ZZEOF
-<div id="content">Welcome to Wizard Echange!</div>
+<div id="content">Welcome to Wizard Echange!<br />
+	<img src="https://avatars0.githubusercontent.com/u/3413101?s=400" alt="">
+</div>
 ZZEOF;
 }
 
@@ -131,6 +133,12 @@ function output_createuser_page_content()
 <form action='createuser.php' id="content" method='post' accept-charset='UTF-8'>
 	<fieldset>
 		<legend>New User</legend>
+ZZEOF;
+	if(!empty($_SESSION['createusererror']))
+	{
+		echo "<span class='error'>".$_SESSION['createusererror']."</span><br />";
+	}
+	echo<<<ZZEOF
 		<label for='username'>Username:</label>
 		<input type='text' name='username' maxlength="50"/>
 		<br />
@@ -147,6 +155,8 @@ function output_createuser_page_content()
 	</fieldset>
 </form>
 ZZEOF;
+
+	unset($_SESSION['createusererror']);
 }
 
 function output_login_content()
@@ -163,6 +173,12 @@ ZZEOF;
 <form id="login" action='login.php' method='post' accept-charset='UTF-8'>
 	<fieldset>
 		<legend>Login</legend>
+ZZEOF;
+		if(!empty($_SESSION['loginerror']))
+		{
+			echo "<span class='error'>".$_SESSION['loginerror']."</span><br />";
+		}
+		echo<<<ZZEOF
 		<label for='username'>Username:</label>
 		<input type='text' name='username' maxlength="50"/>
 		<br />
@@ -175,6 +191,7 @@ ZZEOF;
 </form>
 ZZEOF;
 	}
+	unset($_SESSION['loginerror']);
 }
 
 function output_page_footer()

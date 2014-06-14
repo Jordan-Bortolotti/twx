@@ -68,6 +68,10 @@ background-color: #e8eef4;
   float: right;
 }
 
+.error {
+  color: #F00;
+}
+
 div#content label{
     display: inline-block;
     float: left;
@@ -81,4 +85,3 @@ div#content  input {
   display: inline-block;
   float: left;
 }
-
