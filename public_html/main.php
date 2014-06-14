@@ -2,7 +2,7 @@
 	require_once('lib/lib.php');
 
 	output_html5_header(
-		'My First Page',
+		'Wizard Exchange Home',
 		array("css/common.php")
 	);
 

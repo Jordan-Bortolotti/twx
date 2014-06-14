@@ -80,7 +80,6 @@ function db_verify_login($user, $pass)
 	}
 	else
 	{
-		//echo '<p>'.$op.'</p>';
 		return FALSE;
 	}
   }

@@ -67,3 +67,19 @@ background-color: #e8eef4;
 #login {
   float: right;
 }
+
+div#content label{
+    display: inline-block;
+    float: left;
+    clear: left;
+    width: 110px;
+    text-align: left;
+	color: #000000;
+}
+
+div#content  input {
+  display: inline-block;
+  float: left;
+}
+
+
