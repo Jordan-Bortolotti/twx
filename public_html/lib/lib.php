@@ -277,28 +277,35 @@ function output_login_content()
 	else
 	{
 		echo<<<ZZEOF
-<form id="login" action='login.php' method='post' accept-charset='UTF-8'>
-	<fieldset>
-		<legend>Login</legend>
+<div id="login">
+	<form action='login.php' method='post' accept-charset='UTF-8'>
+		<fieldset>
+			<legend>Login</legend>
 ZZEOF;
 		if(!empty($_SESSION['loginerror']))
 		{
 			echo "<span class='error'>".$_SESSION['loginerror']."</span><br />";
 		}
 		echo<<<ZZEOF
-		<label for='username'>Username:</label>
-		<input required type='text' name='username' maxlength="50"/>
-		<br />
-		<label for='password'>Password:</label>
-		<input required type='password' name='password' maxlength="50"/>
-		<br />
-		<input type='submit' name='Submit' value='Submit'/>
-		<input type='submit' name='NewUser' value='New User'/>
-	</fieldset>
-</form>
+			<label for='username'>Username:</label>
+ZZEOF;
+		echo "<input type='text' name='username' maxlength='50' value='".$_SESSION['login']['username']."'/>";
+		echo<<<ZZEOF
+			<br />
+			<label for='password'>Password:</label>
+ZZEOF;
+		echo "<input type='password' name='password' maxlength='50' value='".$_SESSION['login']['password']."'/>";
+		echo<<<ZZEOF
+			<br />
+			<input type='submit' name='Submit' value='Submit'/>
+			<input type='submit' name='NewUser' value='New User'/>
+		</fieldset>
+	</form>
+</div>
 ZZEOF;
 	}
 	unset($_SESSION['loginerror']);
+	unset($_SESSION['login']);
 }
 
 function output_page_footer()
