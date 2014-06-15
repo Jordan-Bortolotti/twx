@@ -3,7 +3,8 @@
 
 	output_html5_header(
 		'About Us',
-		array("css/common.php")
+		array("css/common.php"),
+		array("lib/libjs.js")
 	);
 
 	output_page_menu();
