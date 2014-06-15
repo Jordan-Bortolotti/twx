@@ -89,16 +89,16 @@ function output_search_page_content()
 				<br>
 			</div>
 			<div id="cardNameCheckbox"><label  for="cname">Card Name: </label> <input type="text" name="cardName"><br></div>
-			<div id="cardSetCheckbox"><label  for="cset">Card Set: </label><input type="text" name="cardSet"><br></div>
+			<div id="cardSetCheckbox"><label  for="cset">Card Set: </label>
+ZZEOF;
+	echo_select_cardset('cardSet', FALSE);	//instead of <input type="text" name="cardSet">
+	echo<<<ZZEOF
+			<br></div>
 			<div id="cardConditionCheckbox"><label  for="ccond">Card Condition: </label>
-			<select name="cardCondition">
-              <option value=""></option>			
-			  <option value="Near Mint">Near Mint</option>
-			  <option value="Lightly Played">Lightly Played</option>
-			  <option value="Moderately Played">Moderately Played	</option>
-			  <option value="Heavily Played">Heavily Played</option>
-			  <option value="Damaged">Damaged</option>
-			</select></div><br>
+ZZEOF;
+	echo_select_cardcondition('cardCondition', FALSE);
+	echo<<<ZZEOF
+			</div><br>
 			<div id="exchangeTypeCheckbox"><label  for="lf">Looking For: </label>
 			<select name="exchangeType">
               <option value=""></option>			
@@ -169,24 +169,15 @@ ZZEOF;
 		<input required type='text' name='cardname' maxlength='50'/>
 		<br />
 		<label for='cardset'>Card Set:</label>
-		<input required type='text' name='cardset' maxlength='50'/>
+ZZEOF;
+		echo_select_cardset('cardset', TRUE);
+		echo<<<ZZEOF
+		<!--<input required type='text' name='cardset' maxlength='50'/>-->
 		<br />
 		<label for='condition'>Condition:</label>
-		<select required name="condition">
-			<option value=""></option>
-			<option value="Near Mint">Near Mint</option>
-			<option value="Lightly Played">Lightly Played</option>
-			<option value="Moderately Played">Moderately Played</option>
-			<option value="Heavily Played">Heavily Played</option>
-			<option value="Damaged">Damaged</option>
-		</select>
-		<br />
-		<input type="radio" name="r" value="Trade">To Trade</input>
-		<input type="radio" name="r" value="Want">Looking For</input>
-		<br />
-		<label for="file">Filename:</label>
-		<input type="file" name="file" id="file">
-		<br />
+ZZEOF;
+		echo_select_cardcondition('condition', TRUE);
+		echo<<<ZZEOF
 		<br /><br />
 		<input type='submit' name='Submit' value='Submit'/>
 	</fieldset>
@@ -335,5 +326,163 @@ function send_user_to_url($url)
 {
 	header('Location: '.$url);
 	exit;
+}
+
+function echo_select_cardset($name, $required)
+{
+	if($required)
+		echo "<select required name='".$name."'>";
+	else
+		echo "<select name='".$name."'>";
+	echo<<<ZZEOF
+	<option value=""></option>
+	<option value="Alara Reborn">Alara Reborn</option>
+	<option value="Alliances">Alliances</option>
+	<option value="Antiquities">Antiquities</option>
+	<option value="Apocalypse">Apocalypse</option>
+	<option value="Arabian Nights">Arabian Nights</option>
+	<option value="Archenemy">Archenemy</option>
+	<option value="Avacyn Restored">Avacyn Restored</option>
+	<option value="Battle Royale Box Set">Battle Royale Box Set</option>
+	<option value="Beatdown Box Set">Beatdown Box Set</option>
+	<option value="Betrayers of Kamigawa">Betrayers of Kamigawa</option>
+	<option value="Born of the Gods">Born of the Gods</option>
+	<option value="Champions of Kamigawa">Champions of Kamigawa</option>
+	<option value="Chronicles">Chronicles</option>
+	<option value="Classic Sixth Edition">Classic Sixth Edition</option>
+	<option value="Coldsnap">Coldsnap</option>
+	<option value="Commander 2013 Edition">Commander 2013 Edition</option>
+	<option value="Commander's Arsenal">Commander's Arsenal</option>
+	<option value="Conflux">Conflux</option>
+	<option value="Dark Ascension">Dark Ascension</option>
+	<option value="Darksteel">Darksteel</option>
+	<option value="Dissension">Dissension</option>
+	<option value="Dragon's Maze">Dragon's Maze</option>
+	<option value="Duel Decks: Ajani vs. Nicol Bolas">Duel Decks: Ajani vs. Nicol Bolas</option>
+	<option value="Duel Decks: Divine vs. Demonic">Duel Decks: Divine vs. Demonic</option>
+	<option value="Duel Decks: Elspeth vs. Tezzeret">Duel Decks: Elspeth vs. Tezzeret</option>
+	<option value="Duel Decks: Elves vs. Goblins">Duel Decks: Elves vs. Goblins</option>
+	<option value="Duel Decks: Garruk vs. Liliana">Duel Decks: Garruk vs. Liliana</option>
+	<option value="Duel Decks: Heroes vs. Monsters">Duel Decks: Heroes vs. Monsters</option>
+	<option value="Duel Decks: Izzet vs. Golgari">Duel Decks: Izzet vs. Golgari</option>
+	<option value="Duel Decks: Jace vs. Chandra">Duel Decks: Jace vs. Chandra</option>
+	<option value="Duel Decks: Jace vs. Vraska">Duel Decks: Jace vs. Vraska</option>
+	<option value="Duel Decks: Knights vs. Dragons">Duel Decks: Knights vs. Dragons</option>
+	<option value="Duel Decks: Phyrexia vs. the Coalition">Duel Decks: Phyrexia vs. the Coalition</option>
+	<option value="Duel Decks: Sorin vs. Tibalt">Duel Decks: Sorin vs. Tibalt</option>
+	<option value="Duel Decks: Venser vs. Koth">Duel Decks: Venser vs. Koth</option>
+	<option value="Eighth Edition">Eighth Edition</option>
+	<option value="Eventide">Eventide</option>
+	<option value="Exodus">Exodus</option>
+	<option value="Fallen Empires">Fallen Empires</option>
+	<option value="Fifth Dawn">Fifth Dawn</option>
+	<option value="Fifth Edition">Fifth Edition</option>
+	<option value="Fourth Edition">Fourth Edition</option>
+	<option value="From the Vault: Dragons">From the Vault: Dragons</option>
+	<option value="From the Vault: Exiled">From the Vault: Exiled</option>
+	<option value="From the Vault: Legends">From the Vault: Legends</option>
+	<option value="From the Vault: Realms">From the Vault: Realms</option>
+	<option value="From the Vault: Relics">From the Vault: Relics</option>
+	<option value="From the Vault: Twenty">From the Vault: Twenty</option>
+	<option value="Future Sight">Future Sight</option>
+	<option value="Gatecrash">Gatecrash</option>
+	<option value="Guildpact">Guildpact</option>
+	<option value="Homelands">Homelands</option>
+	<option value="Ice Age">Ice Age</option>
+	<option value="Innistrad">Innistrad</option>
+	<option value="Invasion">Invasion</option>
+	<option value="Journey into Nyx">Journey into Nyx</option>
+	<option value="Judgment">Judgment</option>
+	<option value="Legends">Legends</option>
+	<option value="Legions">Legions</option>
+	<option value="Limited Edition Alpha">Limited Edition Alpha</option>
+	<option value="Limited Edition Beta">Limited Edition Beta</option>
+	<option value="Lorwyn">Lorwyn</option>
+	<option value="Magic 2010">Magic 2010</option>
+	<option value="Magic 2011">Magic 2011</option>
+	<option value="Magic 2012">Magic 2012</option>
+	<option value="Magic 2013">Magic 2013</option>
+	<option value="Magic 2014 Core Set">Magic 2014 Core Set</option>
+	<option value="Magic: The Gathering-Commander">Magic: The Gathering-Commander</option>
+	<option value="Magic: The Gathering—Conspiracy">Magic: The Gathering—Conspiracy</option>
+	<option value="Masters Edition">Masters Edition</option>
+	<option value="Masters Edition II">Masters Edition II</option>
+	<option value="Masters Edition III">Masters Edition III</option>
+	<option value="Masters Edition IV">Masters Edition IV</option>
+	<option value="Mercadian Masques">Mercadian Masques</option>
+	<option value="Mirage">Mirage</option>
+	<option value="Mirrodin">Mirrodin</option>
+	<option value="Mirrodin Besieged">Mirrodin Besieged</option>
+	<option value="Modern Event Deck 2014">Modern Event Deck 2014</option>
+	<option value="Modern Masters">Modern Masters</option>
+	<option value="Morningtide">Morningtide</option>
+	<option value="Nemesis">Nemesis</option>
+	<option value="New Phyrexia">New Phyrexia</option>
+	<option value="Ninth Edition">Ninth Edition</option>
+	<option value="Odyssey">Odyssey</option>
+	<option value="Onslaught">Onslaught</option>
+	<option value="Planar Chaos">Planar Chaos</option>
+	<option value="Planechase">Planechase</option>
+	<option value="Planechase 2012 Edition">Planechase 2012 Edition</option>
+	<option value="Planeshift">Planeshift</option>
+	<option value="Portal">Portal</option>
+	<option value="Portal Second Age">Portal Second Age</option>
+	<option value="Portal Three Kingdoms">Portal Three Kingdoms</option>
+	<option value="Premium Deck Series: Fire and Lightning">Premium Deck Series: Fire and Lightning</option>
+	<option value="Premium Deck Series: Graveborn">Premium Deck Series: Graveborn</option>
+	<option value="Premium Deck Series: Slivers">Premium Deck Series: Slivers</option>
+	<option value="Promo set for Gatherer">Promo set for Gatherer</option>
+	<option value="Prophecy">Prophecy</option>
+	<option value="Ravnica: City of Guilds">Ravnica: City of Guilds</option>
+	<option value="Return to Ravnica">Return to Ravnica</option>
+	<option value="Revised Edition">Revised Edition</option>
+	<option value="Rise of the Eldrazi">Rise of the Eldrazi</option>
+	<option value="Saviors of Kamigawa">Saviors of Kamigawa</option>
+	<option value="Scars of Mirrodin">Scars of Mirrodin</option>
+	<option value="Scourge">Scourge</option>
+	<option value="Seventh Edition">Seventh Edition</option>
+	<option value="Shadowmoor">Shadowmoor</option>
+	<option value="Shards of Alara">Shards of Alara</option>
+	<option value="Starter 1999">Starter 1999</option>
+	<option value="Starter 2000">Starter 2000</option>
+	<option value="Stronghold">Stronghold</option>
+	<option value="Tempest">Tempest</option>
+	<option value="Tenth Edition">Tenth Edition</option>
+	<option value="The Dark">The Dark</option>
+	<option value="Theros">Theros</option>
+	<option value="Time Spiral">Time Spiral</option>
+	<option value="Time Spiral &quot;Timeshifted&quot;">Time Spiral &quot;Timeshifted&quot;</option>
+	<option value="Torment">Torment</option>
+	<option value="Unglued">Unglued</option>
+	<option value="Unhinged">Unhinged</option>
+	<option value="Unlimited Edition">Unlimited Edition</option>
+	<option value="Urza's Destiny">Urza's Destiny</option>
+	<option value="Urza's Legacy">Urza's Legacy</option>
+	<option value="Urza's Saga">Urza's Saga</option>
+	<option value="Vanguard">Vanguard</option>
+	<option value="Vintage Masters">Vintage Masters</option>
+	<option value="Visions">Visions</option>
+	<option value="Weatherlight">Weatherlight</option>
+	<option value="Worldwake">Worldwake</option>
+	<option value="Zendikar">Zendikar</option>
+</select>
+ZZEOF;
+}
+
+function echo_select_cardcondition($name, $required)
+{
+	if($required)
+		echo '<select required name="'.$name.'">';
+	else
+		echo '<select name="'.$name.'">';
+	echo<<<ZZEOF
+  	<option value=""></option>			
+  	<option value="Near Mint">Near Mint</option>
+  	<option value="Lightly Played">Lightly Played</option>
+  	<option value="Moderately Played">Moderately Played	</option>
+  	<option value="Heavily Played">Heavily Played</option>
+  	<option value="Damaged">Damaged</option>
+</select>
+ZZEOF;
 }
 ?>
