@@ -115,6 +115,7 @@ function db_upload_card($cardName,$cardSet,$cardCondition,$exchangeType)
 	{
 		return false;
 	}
+	
 	db_CloseConnection();
 }
 
@@ -144,10 +145,68 @@ function db_search_cards($choices = array())
 	$result = $st->execute($execute_array);
 	$us = $st->fetchAll(PDO::FETCH_ASSOC);
 	
-	return $us;
+	db_CloseConnection();
 	
-	db_CloseConnection();	
+	return $us;	
 }
+
+function db_get_user_posts($userID)
+{
+	db_connect();
+	global $db_connection_handle;
+	
+	$sql = "SELECT recordID, cardName, cardSet, cardCondition, exchangeType FROM Cards INNER JOIN Users USING(userID) WHERE userID=:userID";
+	$execute_array = array(':userID' => $userID);
+	$st = $db_connection_handle->prepare($sql);
+	$result = $st->execute($execute_array);
+	$us = $st->fetchAll(PDO::FETCH_ASSOC);
+	
+	db_CloseConnection();
+	return $us;	
+}
+
+function db_delete_post($postID)
+{
+	db_connect();
+	global $db_connection_handle;
+	
+	try{
+		$sql = "DELETE FROM Cards WHERE recordID=:recordID";
+		$execute_array = array(':recordID' => $postID);
+		$st = $db_connection_handle->prepare($sql);
+		$result = $st->execute($execute_array);	
+	}catch(PDOException $e)
+	{
+		return false;
+	}
+	
+	return true;
+	db_CloseConnection();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -57,6 +57,7 @@ function output_page_menu()
 	<li><a href="main.php">Home</a></li>
 	<li><a href="search.php">Search</a></li>
 	<li><a href="post.php">Put up a card!</a></li>
+	<li><a href="account.php">My Account</a></li>
 	<li><a href="about.php">About</a></li>
 	<li><a href="contact.php">Contact us</a></li>
 </ul>
@@ -143,6 +144,68 @@ echo<<<ZZEOF
 	</table>	
 </div>
 ZZEOF;
+}
+
+function output_account_table($tableValues)
+{
+echo<<<ZZEOF
+<div>
+	<table class="searchTable">
+		<thead>
+			<th>Post ID</th>
+			<th>Card Name</th>
+			<th>Card Set</th>
+			<th>Card Condition</th>
+			<th>Exchange Type</th>
+		</thead>
+		</tbody>
+ZZEOF;
+	foreach($tableValues as $row)
+	{
+		print "<tr>";
+		foreach($row as $key => $value)
+		{
+			echo<<<ZZEOF
+			<td>$value</td>				
+ZZEOF;
+		}
+		print "</tr>";
+	}
+echo<<<ZZEOF
+	</tbody>
+	</table>	
+</div>
+ZZEOF;
+}
+
+function output_delete_rows_button()
+{
+	echo<<<ZZEOF
+			<div>
+				<br>
+				<form action='account.php' id="delete" method="post">
+					Posts to Delete (Enter a comma delimited list of post ID's to delete): <input type="text" name="deleteValues">
+					<input type="submit" value="Delete">
+				</form>
+				<br>
+			</div>
+ZZEOF;
+}
+
+function output_account_page_content()
+{
+	if(is_user_logged_in())
+	{
+		echo<<<ZZEOF
+		<p class=search> Cards I have Posted:</p><br>
+ZZEOF;
+	
+	}else
+	{
+		echo<<<ZZEOF
+				<div id="content">Please login to view your Account</div>
+ZZEOF;
+	}
 }
 
 function output_post_page_content()
