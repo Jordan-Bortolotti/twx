@@ -132,9 +132,16 @@ ZZEOF;
 		print "<tr>";
 		foreach($row as $key => $value)
 		{
-			echo<<<ZZEOF
-			<td>$value</td>				
+			if($key == "email")
+			{
+				echo "<td><a href='mailto:".$value."?subject=The Wizard Exchange'>".$value."</td>";
+			}
+			else
+			{
+				echo<<<ZZEOF
+			<td>$value</td>
 ZZEOF;
+			}
 		}
 		print "</tr>";
 	}
@@ -222,14 +229,26 @@ ZZEOF;
 
 function output_contact_page_content()
 {
-	echo<<<ZZEOF
-<div id="content">
-	<p>Leave us a Comment and our support team will help resolve any issues you have regarding TWX.</p>
-	<emailarea>Write your comment here.</emailarea>
-
-	<button style="font-weight:bold" onclick="mail()">Send</button>
-</div>	
+	if(empty($_SESSION['contact']))
+	{
+		echo<<<ZZEOF
+<form id='content' method='POST' action='contact.php'>
+		<label for='name'>Name:</label>
+		<input name='name' type='text'/><br />
+		<label for='email'>Email:</label>
+		<input name='email' type='text'/><br />
+		<label for='comments'>Comments:</label><br />
+		<emailarea name='comments'></emailarea>
+		<input name='submit' type='submit' value='Send Message'/><br />
+</form>
 ZZEOF;
+	}
+	else
+	{
+		echo "<div id='content'>".$_SESSION['contact']."</div>";
+		unset($_SESSION['contact']);
+	}
+	
 }
 	
 function output_createuser_page_content()
