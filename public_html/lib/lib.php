@@ -52,6 +52,7 @@ ZZEOF;
 
 function output_page_menu()
 {
+	$admin = user_logged_in() == 'admin' ? "<li><a href='admin.php'>Admin Page</a></li>" : NULL;
 	echo<<<ZZEOF
 <ul id="menu">
 	<li><a href="main.php">Home</a></li>
@@ -60,6 +61,7 @@ function output_page_menu()
 	<li><a href="account.php">My Account</a></li>
 	<li><a href="about.php">About</a></li>
 	<li><a href="contact.php">Contact us</a></li>
+	$admin
 </ul>
 ZZEOF;
 	output_login_content();
@@ -160,6 +162,39 @@ echo<<<ZZEOF
 	<table class="searchTable">
 		<thead>
 			<th>Post ID</th>
+			<th>Card Name</th>
+			<th>Card Set</th>
+			<th>Card Condition</th>
+			<th>Exchange Type</th>
+		</thead>
+		</tbody>
+ZZEOF;
+	foreach($tableValues as $row)
+	{
+		print "<tr>";
+		foreach($row as $key => $value)
+		{
+			echo<<<ZZEOF
+			<td>$value</td>				
+ZZEOF;
+		}
+		print "</tr>";
+	}
+echo<<<ZZEOF
+	</tbody>
+	</table>	
+</div>
+ZZEOF;
+}
+
+function output_admin_table($tableValues)
+{
+echo<<<ZZEOF
+<div>
+	<table class="searchTable">
+		<thead>
+			<th>Post ID</th>
+			<th>User Name</th>
 			<th>Card Name</th>
 			<th>Card Set</th>
 			<th>Card Condition</th>

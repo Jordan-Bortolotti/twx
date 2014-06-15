@@ -165,6 +165,20 @@ function db_get_user_posts($userID)
 	return $us;	
 }
 
+function db_get_all_posts()
+{
+	db_connect();
+	global $db_connection_handle;
+
+	$sql = "SELECT recordID, userName, cardName, cardSet, cardCondition, exchangeType FROM Cards INNER JOIN Users USING(userID)";
+	$st = $db_connection_handle->prepare($sql);
+	$result = $st->execute();
+	$us = $st->fetchAll(PDO::FETCH_ASSOC);
+
+	db_CloseConnection();
+	return $us;
+}
+
 function db_delete_post($postID)
 {
 	db_connect();

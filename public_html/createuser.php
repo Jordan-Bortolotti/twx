@@ -14,7 +14,7 @@
 			db_add_new_user($_POST['username'], $_POST['password1'], $_POST['email']);
 			if(!db_verify_login($_POST['username'], $_POST['password1']))
 			{
-				$_SESSION['createusererror'] = "Unable to create user";
+				$_SESSION['createusererror'] = "Unable to create user (user already exists)";
 			}
 			else
 			{

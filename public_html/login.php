@@ -24,6 +24,6 @@
 		}
 	}
 	
-	header('Location: main.php');
+	header('Location: account.php');
 	exit;
 ?>
