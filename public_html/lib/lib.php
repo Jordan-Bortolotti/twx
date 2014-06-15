@@ -298,6 +298,8 @@ function output_login_content()
 	}
 	else
 	{
+		$username = isset($_SESSION['login']['username']) ? "value='".$_SESSION['login']['username']."'" : null;
+		$password = isset($_SESSION['login']['password']) ? "value='".$_SESSION['login']['password']."'" : null;
 		echo<<<ZZEOF
 <div id="login">
 	<form action='login.php' method='post' accept-charset='UTF-8'>
@@ -311,12 +313,12 @@ ZZEOF;
 		echo<<<ZZEOF
 			<label for='username'>Username:</label>
 ZZEOF;
-		echo "<input type='text' name='username' maxlength='50' value='".$_SESSION['login']['username']."'/>";
+		echo "<input type='text' name='username' maxlength='50' $username/>";
 		echo<<<ZZEOF
 			<br />
 			<label for='password'>Password:</label>
 ZZEOF;
-		echo "<input type='password' name='password' maxlength='50' value='".$_SESSION['login']['password']."'/>";
+		echo "<input type='password' name='password' maxlength='50' $password/>";
 		echo<<<ZZEOF
 			<br />
 			<input type='submit' name='Submit' value='Submit'/>
