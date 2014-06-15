@@ -316,6 +316,9 @@ ZZEOF;
 	
 function output_createuser_page_content()
 {
+	$username = isset($_SESSION['createuser']['username']) ? "value='".$_SESSION['createuser']['username']."'" : null;
+	$email = isset($_SESSION['createuser']['email']) ? "value='".$_SESSION['createuser']['email']."'" : null;
+	$password = isset($_SESSION['createuser']['password']) ? "value='".$_SESSION['createuser']['password']."'" : null;
 	echo<<<ZZEOF
 <form action='createuser.php' id="content" method='post' accept-charset='UTF-8'>
 	<fieldset>
@@ -327,19 +330,13 @@ ZZEOF;
 	}
 	echo<<<ZZEOF
 		<label for='username'>Username:</label>
-ZZEOF;
-		echo "<input required type='text' name='username' maxlength='50' value='".$_SESSION['createuser']['username']."'/>";
-	echo<<<ZZEOF
+		<input required type='text' name='username' maxlength='50' $username/>
 		<br />
 		<label for='email'>Email:</label>
-ZZEOF;
-		echo "<input required type='text' name='email' maxlength='50' value='".$_SESSION['createuser']['email']."'/>";
-		echo<<<ZZEOF
+		<input required type='text' name='email' maxlength='50' $email/>
 		<br />
 		<label for='password1'>Password:</label>
-ZZEOF;
-		echo "<input required type='password' name='password1' maxlength='50' value='".$_SESSION['createuser']['password']."'/'>";
-		echo<<<ZZEOF
+		<input required type='password' name='password1' maxlength='50' $password/'>
 		<br />
 		<label for='password2'>Confirm:</label>
 		<input required type='password' name='password2' maxlength="50"/>
@@ -375,14 +372,10 @@ ZZEOF;
 		}
 		echo<<<ZZEOF
 			<label for='username'>Username:</label>
-ZZEOF;
-		echo "<input type='text' name='username' maxlength='50' $username/>";
-		echo<<<ZZEOF
+			<input type='text' name='username' maxlength='50' $username/>
 			<br />
 			<label for='password'>Password:</label>
-ZZEOF;
-		echo "<input type='password' name='password' maxlength='50' $password/>";
-		echo<<<ZZEOF
+			<input type='password' name='password' maxlength='50' $password/>
 			<br />
 			<input type='submit' name='Submit' value='Submit'/>
 			<input type='submit' name='NewUser' value='New User'/>
