@@ -80,7 +80,7 @@ function output_search_page_content()
 	<form action='search.php' id="search" method="get">
 		<fieldset>
 			<legend>Search</legend>
-			<h2>Search Criteria:</h2>
+			<h2>Search Filter:</h2>
 			<div id="searchCheckboxes">
 				<input type="checkbox" id="chkCardName" checked onclick="toggleHide(this);">Card Name<br>
 				<input type="checkbox" id="chkCardSet" onclick="toggleHide(this);">Card Set<br>
