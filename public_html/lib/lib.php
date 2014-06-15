@@ -327,7 +327,12 @@ ZZEOF;
 
 function output_contact_page_content()
 {
-	if(empty($_SESSION['contact']))
+	if(!empty($_SESSION['contact']))
+	{
+		echo "<div id='content'>".$_SESSION['contact']."</div>";
+		unset($_SESSION['contact']);
+	}
+	else
 	{
 		echo<<<ZZEOF
 <form id='content' method='POST' action='contact.php'>
@@ -341,12 +346,6 @@ function output_contact_page_content()
 </form>
 ZZEOF;
 	}
-	else
-	{
-		echo "<div id='content'>".$_SESSION['contact']."</div>";
-		unset($_SESSION['contact']);
-	}
-	
 }
 	
 function output_createuser_page_content()
