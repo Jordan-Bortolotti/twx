@@ -77,9 +77,17 @@ function output_search_page_content()
 	<form action='search.php' id="search" method="get">
 		<fieldset>
 			<legend>Search</legend>
-			<label  for="cname">Card Name: </label> <input type="text" name="cardName"><br>
-			<label  for="cset">Card Set: </label><input type="text" name="cardSet"><br>
-			<label  for="ccond">Card Condition: </label>
+			<h2>Search Criteria:</h2>
+			<div id="searchCheckboxes">
+				<input type="checkbox" id="chkCardName" checked onclick="toggleHide(this);">Card Name<br>
+				<input type="checkbox" id="chkCardSet" onclick="toggleHide(this);">Card Set<br>
+				<input type="checkbox" id="chkCardCondition" onclick="toggleHide(this);">Card Condition<br>
+				<input type="checkbox" id="chkExchangeType" onclick="toggleHide(this);">Trade or Want<br>
+				<br>
+			</div>
+			<div id="cardNameCheckbox"><label  for="cname">Card Name: </label> <input type="text" name="cardName"><br></div>
+			<div id="cardSetCheckbox"><label  for="cset">Card Set: </label><input type="text" name="cardSet"><br></div>
+			<div id="cardConditionCheckbox"><label  for="ccond">Card Condition: </label>
 			<select name="cardCondition">
               <option value=""></option>			
 			  <option value="Near Mint">Near Mint</option>
@@ -87,13 +95,13 @@ function output_search_page_content()
 			  <option value="Moderately Played">Moderately Played	</option>
 			  <option value="Heavily Played">Heavily Played</option>
 			  <option value="Damaged">Damaged</option>
-			</select><br>
-			<label  for="lf">Looking For: </label>
+			</select></div><br>
+			<div id="exchangeTypeCheckbox"><label  for="lf">Looking For: </label>
 			<select name="exchangeType">
               <option value=""></option>			
 			  <option value="Want">People who want this card</option>
 			  <option value="Trade">People trading away this card</option>			  
-			</select><br><br>
+			</select></div><br><br>
 			<input type="submit" value="Search"><br><br>
 		</fieldset>
 	</form>
@@ -157,15 +165,15 @@ ZZEOF;
 		<label for='condition'>Condition:</label>
 		<select name="condition">
 			<option value=""></option>
-			<option value="nm">Near Mint</option>
-			<option value="sp">Lightly Played</option>
-			<option value="mp">Moderately Played</option>
-			<option value="hp">Heavily Played</option>
-			<option value="d">Damaged</option>
+			<option value="Near Mint">Near Mint</option>
+			<option value="Lightly Played">Lightly Played</option>
+			<option value="Moderately Played">Moderately Played</option>
+			<option value="Heavily Played">Heavily Played</option>
+			<option value="Damaged">Damaged</option>
 		</select>
 		<br />
-		<input type="radio" name="r" value="has">To Trade</input>
-		<input type="radio" name="r" value="wants">Looking For</input>
+		<input type="radio" name="r" value="Trade">To Trade</input>
+		<input type="radio" name="r" value="Want">Looking For</input>
 		<br />
 		<label for="file">Filename:</label>
 		<input type="file" name="file" id="file">

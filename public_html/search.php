@@ -4,7 +4,8 @@
 
 	output_html5_header(
 		'Search',
-		array("css/common.php")
+		array("css/common.php"),
+		array("lib/libjs.js")
 	);
 
 	output_page_menu();

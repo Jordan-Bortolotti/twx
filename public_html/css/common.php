@@ -107,7 +107,23 @@ div#seachContent table, th, td {
     border: 1px solid black;
 }
 
+div#searchCheckboxes {
+	color: #000000;
+}
+
 p.search {
 	color: #000000;
 	font-size:150%;
+}
+
+#cardSetCheckbox {
+    display: none;
+}
+
+#cardConditionCheckbox {
+    display: none;
+}
+
+#exchangeTypeCheckbox {
+	display: none;
 }
