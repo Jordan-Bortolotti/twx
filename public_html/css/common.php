@@ -127,3 +127,9 @@ p.search {
 #exchangeTypeCheckbox {
 	display: none;
 }
+
+#aboutlist:hover {
+    background-color: #d3d3d3;
+    cursor:pointer;
+}
+

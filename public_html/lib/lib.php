@@ -199,14 +199,22 @@ function output_about_page_content()
 	echo<<<ZZEOF
 <div id="content">
 	<p>The Wizard Exchange is a web community who's purpose is to connect Magic the Gathering players for trading, buying, and selling.</p>
-	</ br>
+	<br />
 		<ul>
-			<li><b>Where to Begin</b>
-			<li><b>How to Post</b>
-			<li><b>How to Search</b>
-			<li><b>Legal</b> 
+			<li id="aboutlist"><b>Where to Begin</b>
+				    <div id="wherebegin"><p>Begin by signing up with a username and password for full access to the site!This way you can both search and post wanted or sale ads on TWX. From there, look to make excanges with fellow wizards</p>
+</div>
+			</li>
+			<li id="aboutlist"><b>How to Post</b>
+			    <div id="howpost"><p>To post a wanted or selling ad, simply navigate to the Put up a card! menu option above and fill out a form.</p></div>
+			</li>
+			<li id="aboutlist"><b>How to Search</b>
+			    <div id="howsearch"><p>To search for cards, navigate to the Search  panel and enter in the type, quality, and name of your card. Perhaps someone is selling the card you desperately want! Or maybe you've got enough Boros Reckoners that you'd like to sell one yourself. Search for that card, and maybe there's a buy order waiting for you.</p></div>
+			</li>
+			<li id="aboutlist" onclick="showhideXML('get_xml_block.php','legal');"><b>Legal (Click to Expand)</b>
+			    <div id="legal">&nbsp;</div>
+			</li> 
 		</ul>
-	</p>	
 </div>
 
 ZZEOF;
@@ -216,8 +224,10 @@ function output_contact_page_content()
 {
 	echo<<<ZZEOF
 <div id="content">
-	<p>Send us an email and our support team will help resolve any issues you have regarding TWX.</p>
-	<emailarea>Email Content here.</emailarea>
+	<p>Leave us a Comment and our support team will help resolve any issues you have regarding TWX.</p>
+	<emailarea>Write your comment here.</emailarea>
+
+	<button style="font-weight:bold" onclick="mail()">Send</button>
 </div>	
 ZZEOF;
 }
@@ -300,6 +310,28 @@ ZZEOF;
 	unset($_SESSION['loginerror']);
 	unset($_SESSION['login']);
 }
+ 
+/*function get_html_block($htmlfile)
+{
+ $doc = new DOMDocument();
+ $doc->loadHTMLFile("resources/$htmlfile");
+ echo $doc->saveHTML();
+}
+
+function get_xml_block($xmlfile, $xslfile)
+{
+ header('Content-Type: text/xml');
+
+ $xml = new DOMDocument();
+ $xml->load("resources/$xmlfile");
+
+ $xsl = new DOMDocument();
+ $xsl->load("resources/$xslfile");
+
+ $proc = new XSLTProcessor();
+ $proc->importStylesheet($xsl);
+ echo $proc->transformToXML($xml);
+}*/
 
 function output_page_footer()
 {
