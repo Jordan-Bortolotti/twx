@@ -4,19 +4,8 @@
 
 	if(!empty($_POST))
 	{
-		if(empty($_POST['username']))
-		{
-			$_SESSION['createusererror'] = "UserName is empty!";
-		}
-		else if(empty($_POST['email']))
-		{
-			$_SESSION['createusererror'] = "Email is empty!";
-		}
-		else if(empty($_POST['password1']))
-		{
-			$_SESSION['createusererror'] = "Password is empty!";
-		}
-		else if($_POST['password1'] != $_POST['password2'])
+		$_SESSION['createuser'] = $_POST;
+		if($_POST['password1'] != $_POST['password2'])
 		{
 			$_SESSION['createusererror'] = "Passwords don't match!";
 		}
@@ -33,21 +22,17 @@
 				exit;
 			}
 		}
-		header('Location: createuser.php');
-		exit;
 	}
-	else
-	{
-		output_html5_header(
-			'New User',
-			array("css/common.php")
-		);
 
-		output_page_menu();
-		output_page_header();
-		output_createuser_page_content();
-		output_page_footer();
+	output_html5_header(
+		'New User',
+		array("css/common.php")
+	);
 
-		output_html5_footer();
-	}
+	output_page_menu();
+	output_page_header();
+	output_createuser_page_content();
+	output_page_footer();
+
+	output_html5_footer();
 ?>
