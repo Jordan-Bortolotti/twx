@@ -181,8 +181,6 @@ ZZEOF;
 			<option value="Damaged">Damaged</option>
 		</select>
 		<br />
-		<input type="radio" name="r" value="Trade">To Trade</input>
-		<input type="radio" name="r" value="Want">Looking For</input>
 		<br />
 		<label for="file">Filename:</label>
 		<input type="file" name="file" id="file">
