@@ -2,7 +2,10 @@
 
 function do_page_prerequisites()
 {
-	session_start();
+	if(session_status() == PHP_SESSION_NONE)
+	{
+		session_start();
+	}
 }
 
 function output_html5_header($title, $css = array(), $js = array())
@@ -65,7 +68,7 @@ function output_home_page_content()
 {
 	echo<<<ZZEOF
 <div id="content">Welcome to Wizard Echange!<br />
-	<img src="https://avatars0.githubusercontent.com/u/3413101?s=400" alt="">
+	<img src="http://www.terminally-incoherent.com/blog/wp-content/uploads/2012/08/areyouawizard.png" alt="">
 </div>
 ZZEOF;
 }
@@ -151,19 +154,25 @@ function output_post_page_content()
 	<fieldset>
 		<legend>New Post</legend>
 ZZEOF;
-	if(!empty($_SESSION['posterror']))
-	{
-		echo "<span class='error'>".$_SESSION['posterror']."</span><br />";
-	}
+		if(!empty($_SESSION['posterror']))
+		{
+			echo "<span class='error'>".$_SESSION['posterror']."</span><br />";
+		}
 		echo<<<ZZEOF
+		<label for='r'>Purpose:</label>
+		<input required type="radio" name="r" value="Trade">To Trade</input>
+		<br />
+		<label for='r'>&nbsp;</label>
+		<input required type="radio" name="r" value="Want">Looking For</input>
+		<br />
 		<label for='cardname'>Card Name:</label>
-		<input type='text' name='cardname' maxlength="50"/>
+		<input required type='text' name='cardname' maxlength='50'/>
 		<br />
 		<label for='cardset'>Card Set:</label>
-		<input type='text' name='cardset' maxlength="50"/>
+		<input required type='text' name='cardset' maxlength='50'/>
 		<br />
 		<label for='condition'>Condition:</label>
-		<select name="condition">
+		<select required name="condition">
 			<option value=""></option>
 			<option value="Near Mint">Near Mint</option>
 			<option value="Lightly Played">Lightly Played</option>
@@ -178,6 +187,7 @@ ZZEOF;
 		<label for="file">Filename:</label>
 		<input type="file" name="file" id="file">
 		<br />
+		<br /><br />
 		<input type='submit' name='Submit' value='Submit'/>
 	</fieldset>
 </form>
@@ -234,16 +244,22 @@ ZZEOF;
 	}
 	echo<<<ZZEOF
 		<label for='username'>Username:</label>
-		<input type='text' name='username' maxlength="50"/>
+ZZEOF;
+		echo "<input required type='text' name='username' maxlength='50' value='".$_SESSION['createuser']['username']."'/>";
+	echo<<<ZZEOF
 		<br />
 		<label for='email'>Email:</label>
-		<input type='text' name='email' maxlength="50"/>
+ZZEOF;
+		echo "<input required type='text' name='email' maxlength='50' value='".$_SESSION['createuser']['email']."'/>";
+		echo<<<ZZEOF
 		<br />
 		<label for='password1'>Password:</label>
-		<input type='password' name='password1' maxlength="50"/>
+ZZEOF;
+		echo "<input required type='password' name='password1' maxlength='50' value='".$_SESSION['createuser']['password']."'/'>";
+		echo<<<ZZEOF
 		<br />
-		<label for='password2'>Re-enter:</label>
-		<input type='password' name='password2' maxlength="50"/>
+		<label for='password2'>Confirm:</label>
+		<input required type='password' name='password2' maxlength="50"/>
 		<br /><br />
 		<input type='submit' name='NewUser' value='New User'/>
 	</fieldset>
@@ -251,15 +267,14 @@ ZZEOF;
 ZZEOF;
 
 	unset($_SESSION['createusererror']);
+	unset($_SESSION['createuser']);
 }
 
 function output_login_content()
 {
 	if(is_user_logged_in())
 	{
-		echo<<<ZZEOF
-<a id="login" href="logout.php">Logout</a>
-ZZEOF;
+		echo '<a id="login" href="logout.php">Logout '.$_SESSION['user'].'</a>';
 	}
 	else
 	{
@@ -274,10 +289,10 @@ ZZEOF;
 		}
 		echo<<<ZZEOF
 		<label for='username'>Username:</label>
-		<input type='text' name='username' maxlength="50"/>
+		<input required type='text' name='username' maxlength="50"/>
 		<br />
 		<label for='password'>Password:</label>
-		<input type='password' name='password' maxlength="50"/>
+		<input required type='password' name='password' maxlength="50"/>
 		<br />
 		<input type='submit' name='Submit' value='Submit'/>
 		<input type='submit' name='NewUser' value='New User'/>
