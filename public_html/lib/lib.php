@@ -8,6 +8,34 @@ function do_page_prerequisites()
 	}
 }
 
+function output_xhtml_header($title, $css = array(), $js = array())
+{
+        do_page_prerequisites();
+        header('Content-Type: text/html');
+
+        $title = htmlspecialchars($title);
+
+        $link = '';
+        foreach ($css as $cssFile)
+        $link .= '<link rel="stylesheet" type="text/css" href="'.$cssFile.'" />';
+
+        $script = '';
+        foreach ($js as $jsFile)
+        $script .= '<script type="application/javascript" src="'.$jsFile.'"></script>';
+
+        echo <<<ZZEOF
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" 
+		content="text/html;charset=utf-8" />
+          <title>$title</title>
+          $link
+          $script
+</head>
+<body>
+ZZEOF;
+}
+
 function output_html5_header($title, $css = array(), $js = array())
 {
   	do_page_prerequisites();
@@ -71,8 +99,20 @@ function output_home_page_content()
 {
 	echo<<<ZZEOF
 <div id="content">Welcome to Wizard Echange!<br />
-	<img src="http://www.terminally-incoherent.com/blog/wp-content/uploads/2012/08/areyouawizard.png" alt="">
+	<svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+	 viewbox="0 0 200 200" preserveAspectRatio="xMidYMid slice"
+	 style="width:90%; height:100%; top:0; left:0;">
+	 <radialGradient id="radial" cx="50%" cy="50%" r="50%" fx="25%" fy="25%">
+	  <stop stop-color="black" offset="0%"/>
+	  <stop stop-color="cornflowerblue" offset="50%"/>
+	  <stop stop-color="white" offset="100%"/>
+	 </radialGradient>
+	 <rect id="rect" width="200" height="200" stroke-width="1" style="fill:url(#radial)" />
+	 <circle id="circ1" cx="100" cy="100" r="50" stroke-width="1" style="fill:url(#radial)" />
+	 <circle id="circ2" cx="100" cy="100" r="100" stroke-width="1" style="fill:url(#radia)" />
+	</svg>
 </div>
+<br />
 ZZEOF;
 }
 
