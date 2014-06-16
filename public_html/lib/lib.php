@@ -231,6 +231,7 @@ function output_admin_table($tableValues)
 {
 echo<<<ZZEOF
 <div>
+<p class=search> All Posts:</p><br>
 	<table class="searchTable">
 		<thead>
 			<th>Post ID</th>
@@ -384,6 +385,7 @@ function output_contact_page_content()
 		<emailarea name='comments'></emailarea>
 		<input name='submit' type='submit' value='Send Message'/><br />
 </form>
+<br />
 ZZEOF;
 	}
 }
