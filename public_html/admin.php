@@ -25,7 +25,7 @@
 		if(!empty($values))
 		{
 			output_admin_table($values);
-			output_delete_rows_button();
+			output_delete_rows_button_admin();
 		}
 		else
 		{
@@ -48,7 +48,7 @@
 				}
 			}
 			unset($_POST['deleteValues']);
-			header('Location: account.php');
+			header('Location: admin.php');
 		}
 	}
 ?>

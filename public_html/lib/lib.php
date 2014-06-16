@@ -234,6 +234,20 @@ function output_delete_rows_button()
 ZZEOF;
 }
 
+function output_delete_rows_button_admin()
+{
+	echo<<<ZZEOF
+			<div>
+				<br>
+				<form action='admin.php' id="delete" method="post">
+					Posts to Delete (Enter a comma delimited list of post ID's to delete): <input type="text" name="deleteValues">
+					<input type="submit" value="Delete">
+				</form>
+				<br>
+			</div>
+ZZEOF;
+}
+
 function output_account_page_content()
 {
 	if(is_user_logged_in())

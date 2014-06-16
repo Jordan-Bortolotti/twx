@@ -198,6 +198,26 @@ function db_delete_post($postID)
 	db_CloseConnection();
 }
 
+function db_delete_post_users($postID)
+{
+	db_connect();
+	global $db_connection_handle;
+	$usrID = $_SESSION['userID'];
+	
+	try{		
+		$sql = "DELETE FROM Cards WHERE recordID=:recordID AND userID=:userID";
+		$execute_array = array(':recordID' => $postID, ':userID' => $usrID);
+		$st = $db_connection_handle->prepare($sql);
+		$result = $st->execute($execute_array);	
+	}catch(PDOException $e)
+	{
+		return false;
+	}
+	
+	return true;
+	db_CloseConnection();
+}
+
 
 
 

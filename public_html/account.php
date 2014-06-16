@@ -37,7 +37,7 @@
 			{				
 				if(ctype_digit(trim($record)))
 				{					
-					db_delete_post($record);
+					db_delete_post_users($record);
 				}
 			}
 			unset($_POST['deleteValues']);
