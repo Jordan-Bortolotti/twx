@@ -1,7 +1,7 @@
 <?php
 	require_once('lib/lib.php');
 
-	output_html5_header(
+	output_xhtml_header(
 		'Wizard Exchange Home',
 		array("css/common.php")
 	);
